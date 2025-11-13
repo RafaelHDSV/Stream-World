@@ -1,0 +1,53 @@
+﻿@model IEnumerable<StreamWorld.Models.Artist>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.birthdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.countryBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.birthdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.countryBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item._id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item._id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item._id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

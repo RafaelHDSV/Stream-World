@@ -1,0 +1,48 @@
+﻿@model StreamWorld.Models.Production
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Production</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="titulo" class="control-label"></label>
+                <input asp-for="titulo" class="form-control" />
+                <span asp-validation-for="titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="releaseDate" class="control-label"></label>
+                <input asp-for="releaseDate" class="form-control" />
+                <span asp-validation-for="releaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="director" class="control-label"></label>
+                <input asp-for="director" class="form-control" />
+                <span asp-validation-for="director" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="coverPhoto" class="control-label"></label>
+                <input asp-for="coverPhoto" class="form-control" />
+                <span asp-validation-for="coverPhoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
