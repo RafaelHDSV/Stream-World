@@ -33,6 +33,15 @@
                 <span asp-validation-for="coverPhoto" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label for="Genres">Gêneros</label>
+                <select asp-for="productionsGenres" class="form-control" asp-items="ViewBag.Genres" multiple="multiple"></select>
+            </div>
+
+            <div class="form-group">
+                <label for="Artists">Artistas</label>
+                <select asp-for="productionsArtists" class="form-control" asp-items="ViewBag.Artists" multiple="multiple"></select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

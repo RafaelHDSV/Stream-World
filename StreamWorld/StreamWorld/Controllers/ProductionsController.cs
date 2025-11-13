@@ -46,6 +46,8 @@ namespace StreamWorld.Controllers
         // GET: Productions/Create
         public IActionResult Create()
         {
+            ViewBag.Genres = new MultiSelectList(_context.Genre, "_id", "name");
+            ViewBag.Artists = new MultiSelectList(_context.Artist, "_id", "name");
             return View();
         }
 
@@ -54,14 +56,47 @@ namespace StreamWorld.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("_id,titulo,releaseDate,director,coverPhoto")] Production production)
+        public async Task<IActionResult> Create([Bind("_id,titulo,releaseDate,director,coverPhoto")] Production production, int[] selectedGenres, int[] selectedArtists)
         {
             if (ModelState.IsValid)
             {
+                // Salva a produção primeiro
                 _context.Add(production);
+                await _context.SaveChangesAsync();
+
+                // Relaciona Gêneros
+                if (selectedGenres != null)
+                {
+                    foreach (var genreId in selectedGenres)
+                    {
+                        _context.ProductionsGenre.Add(new ProductionsGenre
+                        {
+                            productionId = production._id,
+                            genresId = genreId
+                        });
+                    }
+                }
+
+                // Relaciona Artistas (sem personagem ainda)
+                if (selectedArtists != null)
+                {
+                    foreach (var artistId in selectedArtists)
+                    {
+                        _context.ProductionsArtist.Add(new ProductionsArtist
+                        {
+                            productionId = production._id,
+                            artistsId = artistId,
+                            characterName = "Personagem" // você pode melhorar depois
+                        });
+                    }
+                }
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["Genres"] = new MultiSelectList(_context.Genre, "_id", "nome", selectedGenres);
+            ViewData["Artists"] = new MultiSelectList(_context.Artist, "_id", "nome", selectedArtists);
             return View(production);
         }
 

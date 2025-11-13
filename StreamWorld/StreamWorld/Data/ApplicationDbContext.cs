@@ -47,5 +47,7 @@ namespace StreamWorld.Data
         public DbSet<StreamWorld.Models.Artist> Artist { get; set; } = default!;
         public DbSet<StreamWorld.Models.Genre> Genre { get; set; } = default!;
         public DbSet<StreamWorld.Models.Contact> Contact { get; set; } = default!;
+        public DbSet<StreamWorld.Models.ProductionsGenre> ProductionsGenre { get; set; } = default!;
+        public DbSet<StreamWorld.Models.ProductionsArtist> ProductionsArtist { get; set; } = default!;
     }
 }

@@ -9,7 +9,7 @@ namespace StreamWorld.Models
 
         [Display(Name = "Nome Completo")]
         [Required(ErrorMessage = "O nome é obrigatório.")]
-        public string nome { get; set; } = string.Empty;
+        public string name { get; set; } = string.Empty;
 
         [Display(Name = "Data de Nascimento")]
         [DataType(DataType.Date)]
