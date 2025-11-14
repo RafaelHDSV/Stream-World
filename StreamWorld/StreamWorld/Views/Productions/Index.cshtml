@@ -24,6 +24,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.coverPhoto)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productionsGenres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productionsArtists)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -40,12 +46,30 @@
                 @Html.DisplayFor(modelItem => item.director)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.coverPhoto)
+                <img src=@item.coverPhoto alt="cover_photo" width="200px" />
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item._id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item._id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item._id">Delete</a>
+                @if (item?.productionsGenres != null)
+                {
+                    foreach (var g in item.productionsGenres)
+                    {
+                        @g.genres?.name <br />
+                    }
+                }
+            </td>
+            <td>
+                @if (item?.productionsArtists != null)
+                {
+                    foreach (var a in item.productionsArtists)
+                    {
+                        @a.artists?.name <br />
+                    }
+                }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item?._id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item?._id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item?._id">Delete</a>
             </td>
         </tr>
 }

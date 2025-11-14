@@ -22,7 +22,10 @@ namespace StreamWorld.Models
         [Display(Name = "Foto da Capa")]
         public string? coverPhoto { get; set; }
 
+        [Display(Name = "Gêneros")]
         public ICollection<ProductionsGenre>? productionsGenres { get; set; }
+
+        [Display(Name = "Artistas")]
         public ICollection<ProductionsArtist>? productionsArtists { get; set; }
     }
 }

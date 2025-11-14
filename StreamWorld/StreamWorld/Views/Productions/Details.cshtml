@@ -32,7 +32,25 @@
             @Html.DisplayNameFor(model => model.coverPhoto)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.coverPhoto)
+            <img src=@Model.coverPhoto alt="cover_photo" width="200px"/>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.productionsGenres)
+        </dt>
+        <dd>
+            @foreach (var g in Model.productionsGenres)
+            {
+                @g.genres.name <br />
+            }
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.productionsArtists)
+        </dt>
+        <dd>
+            @foreach (var a in Model.productionsArtists)
+            {
+                @a.artists.name <br />
+            }
         </dd>
     </dl>
 </div>
