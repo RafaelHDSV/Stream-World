@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StreamWorld")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4e475aa9d67b8f329c3c04f5d1edb212af55262c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+084987de1b95c4f389062b824945f728e51acb34")]
 [assembly: System.Reflection.AssemblyProductAttribute("StreamWorld")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StreamWorld")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

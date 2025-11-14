@@ -54,7 +54,7 @@ namespace StreamWorld.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("_id,nome,birthdate,countryBirth,photo")] Artist artist)
+        public async Task<IActionResult> Create([Bind("_id,name,birthdate,countryBirth,photo")] Artist artist)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace StreamWorld.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("_id,nome,birthdate,countryBirth,photo")] Artist artist)
+        public async Task<IActionResult> Edit(int id, [Bind("_id,name,birthdate,countryBirth,photo")] Artist artist)
         {
             if (id != artist._id)
             {

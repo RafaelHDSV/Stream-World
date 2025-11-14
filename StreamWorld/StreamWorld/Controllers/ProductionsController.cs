@@ -69,7 +69,7 @@ namespace StreamWorld.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("titulo,releaseDate,director,coverPhoto,productionsGenres,productionsArtists")] Production production, int[] selectedGenres, int[] selectedArtists)
+        public async Task<IActionResult> Create([Bind("titulo,releaseDate,type,director,coverPhoto,productionsGenres,productionsArtists")] Production production, int[] selectedGenres, int[] selectedArtists)
         {
             if (ModelState.IsValid)
             {
@@ -171,6 +171,7 @@ namespace StreamWorld.Controllers
                     // Atualiza os campos da produção
                     dbProduction.titulo = production.titulo;
                     dbProduction.releaseDate = production.releaseDate;
+                    dbProduction.type = production.type;
                     dbProduction.director = production.director;
                     dbProduction.coverPhoto = production.coverPhoto;
 
@@ -241,7 +242,10 @@ namespace StreamWorld.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var production = await _context.Production.FindAsync(id);
+            var production = await _context.Production
+                .Include(p => p.productionsGenres)
+                .Include(p => p.productionsArtists)
+                .FirstOrDefaultAsync(p => p._id == id);
             if (production != null)
             {
                 _context.ProductionsGenre.RemoveRange(production.productionsGenres);

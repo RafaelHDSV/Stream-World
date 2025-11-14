@@ -15,6 +15,9 @@ namespace StreamWorld.Models
         [DataType(DataType.Date)]
         public DateTime releaseDate { get; set; }
 
+        [Display(Name = "Tipo de Obra")]
+        public string type { get; set; }
+
         [Display(Name = "Diretor")]
         [Required(ErrorMessage = "O diretor é obrigatório.")]
         public string director { get; set; } = string.Empty;

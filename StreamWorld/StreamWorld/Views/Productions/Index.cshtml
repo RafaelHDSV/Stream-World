@@ -19,6 +19,9 @@
                 @Html.DisplayNameFor(model => model.releaseDate)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.director)
             </th>
             <th>
@@ -43,6 +46,9 @@
                 @Html.DisplayFor(modelItem => item.releaseDate)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.director)
             </td>
             <td>
@@ -51,19 +57,27 @@
             <td>
                 @if (item?.productionsGenres != null)
                 {
-                    foreach (var g in item.productionsGenres)
-                    {
-                        @g.genres?.name <br />
-                    }
+                    <ol>
+                        @foreach (var g in item.productionsGenres)
+                        {
+                            <li>
+                                @g.genres?.name
+                            </li>
+                        }
+                    </ol>
                 }
             </td>
             <td>
                 @if (item?.productionsArtists != null)
                 {
-                    foreach (var a in item.productionsArtists)
-                    {
-                        @a.artists?.name <br />
-                    }
+                    <ol>
+                        @foreach (var a in item.productionsArtists)
+                        {
+                            <li>
+                                @a.artists?.name
+                            </li>
+                        }
+                    </ol>
                 }
             </td>
             <td>

@@ -23,6 +23,12 @@
             @Html.DisplayFor(model => model.releaseDate)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.type)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.director)
         </dt>
         <dd class = "col-sm-10">
@@ -38,18 +44,32 @@
             @Html.DisplayNameFor(model => model.productionsGenres)
         </dt>
         <dd>
-            @foreach (var g in Model.productionsGenres)
+            @if (Model?.productionsGenres != null)
             {
-                @g.genres.name <br />
+                <ol>
+                    @foreach (var g in Model.productionsGenres)
+                    {
+                        <li>
+                            @g.genres?.name
+                        </li>
+                    }
+                </ol>
             }
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.productionsArtists)
         </dt>
         <dd>
-            @foreach (var a in Model.productionsArtists)
+            @if (Model?.productionsArtists != null)
             {
-                @a.artists.name <br />
+                <ol>
+                    @foreach (var a in Model.productionsArtists)
+                    {
+                        <li>
+                            @a.artists?.name
+                        </li>
+                    }
+                </ol>
             }
         </dd>
     </dl>
