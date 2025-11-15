@@ -23,6 +23,6 @@ namespace StreamWorld.Models
         public string message { get; set; } = string.Empty;
 
         [Display(Name = "Data e Hora do Envio")]
-        public DateTime submissionDate { get; set; }
+        public DateTime submissionDate { get; set; } = DateTime.Now;
     }
 }

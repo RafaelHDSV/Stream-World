@@ -15,7 +15,7 @@ namespace StreamWorld.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // 🔑 Chave composta para a tabela de ligação Produções ↔ Artistas
+            // 🔑 Chave composta para a tabela de ligação Obras ↔ Artistas
             modelBuilder.Entity<ProductionsArtist>()
                 .HasKey(pa => new { pa.productionId, pa.artistsId });
 
@@ -29,7 +29,6 @@ namespace StreamWorld.Data
                 .WithMany(a => a.productionsArtists)
                 .HasForeignKey(pa => pa.artistsId);
 
-            // 🔑 Chave composta para Produções ↔ Gêneros
             modelBuilder.Entity<ProductionsGenre>()
                 .HasKey(pg => new { pg.productionId, pg.genresId });
 

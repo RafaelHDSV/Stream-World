@@ -75,7 +75,7 @@ namespace StreamWorld.Controllers
             {
                 production.createdAt = DateTime.UtcNow;
 
-                // Salva a produção primeiro
+                // Salva a obra primeiro
                 _context.Add(production);
                 await _context.SaveChangesAsync();
 
@@ -176,7 +176,7 @@ namespace StreamWorld.Controllers
                     if (dbProduction == null)
                         return NotFound();
 
-                    // Atualiza os campos da produção
+                    // Atualiza os campos da obra
                     dbProduction.titulo = production.titulo;
                     dbProduction.releaseDate = production.releaseDate;
                     dbProduction.type = production.type;
