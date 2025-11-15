@@ -33,6 +33,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.productionsArtists)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createdAt)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -79,6 +82,9 @@
                         }
                     </ol>
                 }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdAt)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item?._id">Edit</a> |

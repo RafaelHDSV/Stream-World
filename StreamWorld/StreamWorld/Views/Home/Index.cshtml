@@ -1,8 +1,25 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<StreamWorld.Models.Production>
+
+@{
+    ViewData["Title"] = "Últimos títulos";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h2 class="mb-4">Últimos títulos adicionados</h2>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+
+@foreach (var item in Model)
+{
+    <div class="col">
+        <a asp-controller="Productions" asp-action="Details" asp-route-id="@item._id" class="text-decoration-none">
+            <div class="card h-100 shadow-sm">
+                <img src="@item.coverPhoto" class="card-img-top" alt="@item.titulo" style="height: 260px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h6 class="card-title fw-bold text-dark">@item.titulo</h6>
+                </div>
+            </div>
+        </a>
+    </div>
+}
+
 </div>

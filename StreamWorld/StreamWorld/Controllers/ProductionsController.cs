@@ -69,10 +69,12 @@ namespace StreamWorld.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("titulo,releaseDate,type,director,coverPhoto,productionsGenres,productionsArtists")] Production production, int[] selectedGenres, int[] selectedArtists)
+        public async Task<IActionResult> Create([Bind("titulo,releaseDate,type,director,coverPhoto")] Production production, int[] selectedGenres, int[] selectedArtists)
         {
             if (ModelState.IsValid)
             {
+                production.createdAt = DateTime.UtcNow;
+
                 // Salva a produção primeiro
                 _context.Add(production);
                 await _context.SaveChangesAsync();

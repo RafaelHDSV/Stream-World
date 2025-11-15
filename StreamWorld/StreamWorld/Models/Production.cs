@@ -30,5 +30,9 @@ namespace StreamWorld.Models
 
         [Display(Name = "Artistas")]
         public ICollection<ProductionsArtist>? productionsArtists { get; set; }
+
+        [Display(Name = "Data de Criação")]
+        [DataType(DataType.Date)]
+        public DateTime createdAt { get; set; } = DateTime.UtcNow;
     }
 }

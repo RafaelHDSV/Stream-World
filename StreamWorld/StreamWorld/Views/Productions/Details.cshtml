@@ -43,7 +43,7 @@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.productionsGenres)
         </dt>
-        <dd>
+        <dd class = "col-sm-10">
             @if (Model?.productionsGenres != null)
             {
                 <ol>
@@ -59,7 +59,7 @@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.productionsArtists)
         </dt>
-        <dd>
+        <dd class = "col-sm-10">
             @if (Model?.productionsArtists != null)
             {
                 <ol>
@@ -71,6 +71,12 @@
                     }
                 </ol>
             }
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.createdAt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.createdAt)
         </dd>
     </dl>
 </div>
