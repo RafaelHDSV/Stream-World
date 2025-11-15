@@ -1,42 +1,31 @@
 ﻿@model StreamWorld.Models.Artist
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes do Artista";
 }
 
-<h1>Details</h1>
+<h2 class="mb-4">@Model.name</h2>
 
-<div>
-    <h4>Artist</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.birthdate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.birthdate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.countryBirth)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.countryBirth)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.photo)
-        </dt>
-        <dd class = "col-sm-10">
-            <img src=@Model.photo alt="photo" width="200px" />
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?._id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="row">
+    <!-- CAPA -->
+    <div class="col-md-4">
+        <img src="@(string.IsNullOrEmpty(Model.photo) ? "/images/no-image.jpg" : Model.photo)"
+             alt="Capa"
+             class="img-fluid rounded shadow" />
+    </div>
+
+    <!-- INFORMAÇÕES -->
+    <div class="col-md-8">
+        <h4>Informações Gerais</h4>
+        <hr />
+
+        <p><strong>@Html.DisplayNameFor(model => model.name)</strong> @Html.DisplayFor(model => model.name)</p>
+        <p><strong>@Html.DisplayNameFor(model => model.birthdate)</strong> @Html.DisplayFor(model => model.birthdate)</p>
+        <p><strong>@Html.DisplayNameFor(model => model.countryBirth)</strong> @Html.DisplayFor(model => model.countryBirth)</p>
+    
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model?._id" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
 </div>

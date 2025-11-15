@@ -1,0 +1,35 @@
+﻿@model IEnumerable<StreamWorld.Models.Artist>
+@{
+    ViewData["Title"] = "Buscar Artistas";
+}
+
+<h2 class="mb-4">Buscar Artistas</h2>
+
+<form method="get" asp-action="Search" class="mb-4 d-flex gap-2">
+    <input type="text" name="query" class="form-control" placeholder="Buscar por nome ou país de nascimento" />
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var artist in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <a asp-action="Details" asp-route-id="@artist._id" class="text-decoration-none text-dark">
+                        <img src="@artist.photo" class="card-img-top" alt="Foto de @artist.name" />
+                        <div class="card-body">
+                            <h5 class="card-title">@artist.name</h5>
+                            <p class="card-text text-muted">@artist.countryBirth</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>Nenhum artista encontrado.</p>
+}

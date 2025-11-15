@@ -1,7 +1,14 @@
 ﻿@model StreamWorld.Models.Production
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["titulo"] = "Create";
+}
+
+@{
+    var artistOptions = string.Join("", 
+        ((IEnumerable<SelectListItem>)ViewBag.Artist)
+        .Select(a => $"<option value=\"{a.Value}\">{a.Text}</option>")
+    );
 }
 
 <h1>Create</h1>
@@ -45,9 +52,38 @@
                 <select name="selectedGenres" class="form-control" asp-items="ViewBag.Genres" multiple="multiple"></select>
             </div>
             <div class="form-group">
-                <label for="Artists">Artistas</label>
-                <select name="selectedArtists" class="form-control" asp-items="ViewBag.Artists" multiple="multiple"></select>
+                <label>Artistas</label>
+
+                <div id="artists-rows">
+                    <!-- linhas geradas aqui -->
+                    @* Em Edit você pode pré-popular usando Model.productionsArtists *@
+                    @if (Model?.productionsArtists != null)
+                    {
+                        int idx = 0;
+                        foreach (var pa in Model.productionsArtists)
+                        {
+                            <div class="row mb-2 artist-row">
+                                <div class="col-6">
+                                    <select name="selectedArtists" class="form-control">
+                                        <option value="">-- selecione --</option>
+                                        @Html.Raw(artistOptions)
+                                    </select>
+                                </div>
+                                <div class="col-5">
+                                    <input name="characterNames" value="@pa.characterName" class="form-control" placeholder="Nome do personagem (opcional)"/>
+                                </div>
+                                <div class="col-1">
+                                    <button type="button" class="btn btn-danger btn-sm remove-row">x</button>
+                                </div>
+                            </div>
+                            idx++;
+                        }
+                    }
+                </div>
+
+                <button type="button" id="add-artist" class="btn btn-secondary btn-sm mt-2">Adicionar artista</button>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -61,4 +97,49 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        (function(){
+
+            function buildArtistRow(selectedValue, character){
+                var wrapper = document.createElement('div');
+                wrapper.className = 'row mb-2 artist-row';
+
+                wrapper.innerHTML = `
+                    <div class="col-6">
+                        <select name="selectedArtists" class="form-control">
+                            <option value="">-- selecione --</option>
+                            @Html.Raw(artistOptions)
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <input name="characterNames" value="" class="form-control" placeholder="Nome do personagem (opcional)"/>
+                    </div>
+                    <div class="col-1">
+                        <button type="button" class="btn btn-danger btn-sm remove-row">x</button>
+                    </div>
+                `;
+
+                if (selectedValue)
+                    wrapper.querySelector('select[name="selectedArtists"]').value = selectedValue;
+
+                if (character)
+                    wrapper.querySelector('input[name="characterNames"]').value = character;
+
+                return wrapper;
+            }
+
+            document.getElementById('add-artist').addEventListener('click', function(){
+                var row = buildArtistRow(null, null);
+                document.getElementById('artists-rows').appendChild(row);
+            });
+
+            document.addEventListener('click', function(e){
+                if (e.target && e.target.matches('.remove-row')){
+                    e.target.closest('.artist-row').remove();
+                }
+            });
+
+        })();
+    </script>
 }

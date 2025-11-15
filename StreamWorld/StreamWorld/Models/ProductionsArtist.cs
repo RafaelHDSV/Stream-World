@@ -9,7 +9,8 @@ namespace StreamWorld.Models
         public int artistsId { get; set; }
         public Artist? artists { get; set; }
 
-        //[Required(ErrorMessage = "O nome do personagem é obrigatório.")]
-        //public string characterName { get; set; } = string.Empty;
+        [Display(Name = "Nome do Personagem")]
+        [Required(ErrorMessage = "O nome do personagem é obrigatório.")]
+        public string characterName { get; set; } = string.Empty;
     }
 }

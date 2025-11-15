@@ -15,7 +15,16 @@
             <div class="card h-100 shadow-sm">
                 <img src="@item.coverPhoto" class="card-img-top" alt="@item.titulo" style="height: 260px; object-fit: cover;">
                 <div class="card-body text-center">
-                    <h6 class="card-title fw-bold text-dark">@item.titulo</h6>
+                    <h6 class="card-title">
+                        <a 
+                            asp-controller="Productions"
+                            asp-action="Details" 
+                            asp-route-id="@item._id"
+                            class="card-title fw-bold text-dark"
+                        >
+                            @item.titulo
+                        </a>
+                    </h6>
                 </div>
             </div>
         </a>

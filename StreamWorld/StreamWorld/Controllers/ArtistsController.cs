@@ -149,6 +149,27 @@ namespace StreamWorld.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Search(string query)
+        {
+            IQueryable<Artist> artistas = _context.Artist;
+
+
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                artistas = artistas.Where(a =>
+                a.name.Contains(query) ||
+                a.countryBirth.Contains(query));
+            }
+
+
+            var resultado = artistas
+            .OrderBy(a => a.name)
+            .ToList();
+
+
+            return View(resultado);
+        }
+
         private bool ArtistExists(int id)
         {
             return _context.Artist.Any(e => e._id == id);

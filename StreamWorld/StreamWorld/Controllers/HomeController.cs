@@ -27,7 +27,7 @@ namespace StreamWorld.Controllers
             return View(lastProductions);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Credit()
         {
             return View();
         }

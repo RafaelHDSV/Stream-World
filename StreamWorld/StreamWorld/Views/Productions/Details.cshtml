@@ -1,86 +1,72 @@
 ﻿@model StreamWorld.Models.Production
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["titulo"] = "Detalhes da Produção";
 }
 
-<h1>Details</h1>
+<h2 class="mb-4">@Model.titulo</h2>
 
-<div>
-    <h4>Production</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.titulo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.titulo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.releaseDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.releaseDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.type)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.type)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.director)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.director)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.coverPhoto)
-        </dt>
-        <dd class = "col-sm-10">
-            <img src=@Model.coverPhoto alt="cover_photo" width="200px"/>
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.productionsGenres)
-        </dt>
-        <dd class = "col-sm-10">
-            @if (Model?.productionsGenres != null)
+<div class="row">
+    <!-- CAPA -->
+    <div class="col-md-4">
+        <img src="@(string.IsNullOrEmpty(Model.coverPhoto) ? "/images/no-image.jpg" : Model.coverPhoto)"
+             alt="Capa"
+             class="img-fluid rounded shadow" />
+    </div>
+
+    <!-- INFORMAÇÕES -->
+    <div class="col-md-8">
+
+        <h4>Informações Gerais</h4>
+        <hr />
+
+        <p><strong>Título:</strong> @Model.titulo</p>
+
+        <p><strong>Tipo:</strong> @Model.type</p>
+
+        <p><strong>Ano de lançamento:</strong> @Model.releaseDate.ToString("yyyy")</p>
+
+        <p><strong>Diretor:</strong> @Model.director</p>
+
+        <p>
+            <strong>Gêneros:</strong>
+            @if (Model.productionsGenres != null && Model.productionsGenres.Any())
             {
-                <ol>
-                    @foreach (var g in Model.productionsGenres)
-                    {
-                        <li>
-                            @g.genres?.name
-                        </li>
-                    }
-                </ol>
+                @string.Join(", ", Model.productionsGenres.Select(g => g.genres.name))
             }
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.productionsArtists)
-        </dt>
-        <dd class = "col-sm-10">
-            @if (Model?.productionsArtists != null)
+            else
             {
-                <ol>
-                    @foreach (var a in Model.productionsArtists)
-                    {
-                        <li>
-                            @a.artists?.name
-                        </li>
-                    }
-                </ol>
+                <span>—</span>
             }
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.createdAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.createdAt)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?._id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+        </p>
+
+        <h4 class="mt-4">Artistas Participantes</h4>
+        <hr />
+
+        @if (Model.productionsArtists != null && Model.productionsArtists.Any())
+        {
+            <ul>
+            @foreach (var pa in Model.productionsArtists)
+            {
+                <li>
+                    <strong>@pa.artists?.name</strong>
+                    @if (!string.IsNullOrWhiteSpace(pa.characterName))
+                    {
+                        <span> como <em>@pa.characterName</em></span>
+                    }
+                </li>
+            }
+            </ul>
+        }
+        else
+        {
+            <p>Nenhum artista vinculado.</p>
+        }
+
+
+        <div class="mt-4">
+            <a asp-action="Edit" asp-route-id="@Model._id" class="btn btn-primary">Editar</a>
+            <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+        </div>
+    </div>
 </div>

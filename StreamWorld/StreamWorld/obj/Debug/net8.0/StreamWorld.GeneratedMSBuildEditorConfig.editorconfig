@@ -52,6 +52,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/rafae/OneDrive/Documentos/FACULDADE/Desenvolvimento de Aplicações em Ambiente WEB/StreamWorld/StreamWorld/StreamWorld/Views/Artists/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0c1xTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/rafae/OneDrive/Documentos/FACULDADE/Desenvolvimento de Aplicações em Ambiente WEB/StreamWorld/StreamWorld/StreamWorld/Views/Contacts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -92,12 +96,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rafae/OneDrive/Documentos/FACULDADE/Desenvolvimento de Aplicações em Ambiente WEB/StreamWorld/StreamWorld/StreamWorld/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/rafae/OneDrive/Documentos/FACULDADE/Desenvolvimento de Aplicações em Ambiente WEB/StreamWorld/StreamWorld/StreamWorld/Views/Home/Credit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rafae/OneDrive/Documentos/FACULDADE/Desenvolvimento de Aplicações em Ambiente WEB/StreamWorld/StreamWorld/StreamWorld/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/rafae/OneDrive/Documentos/FACULDADE/Desenvolvimento de Aplicações em Ambiente WEB/StreamWorld/StreamWorld/StreamWorld/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/rafae/OneDrive/Documentos/FACULDADE/Desenvolvimento de Aplicações em Ambiente WEB/StreamWorld/StreamWorld/StreamWorld/Views/Productions/Create.cshtml]
@@ -118,6 +122,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/rafae/OneDrive/Documentos/FACULDADE/Desenvolvimento de Aplicações em Ambiente WEB/StreamWorld/StreamWorld/StreamWorld/Views/Productions/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdGlvbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rafae/OneDrive/Documentos/FACULDADE/Desenvolvimento de Aplicações em Ambiente WEB/StreamWorld/StreamWorld/StreamWorld/Views/Productions/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdGlvbnNcU2VhcmNoLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/rafae/OneDrive/Documentos/FACULDADE/Desenvolvimento de Aplicações em Ambiente WEB/StreamWorld/StreamWorld/StreamWorld/Views/Shared/Error.cshtml]

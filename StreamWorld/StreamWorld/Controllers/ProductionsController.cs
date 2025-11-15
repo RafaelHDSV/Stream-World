@@ -19,7 +19,7 @@ namespace StreamWorld.Controllers
             _context = context;
         }
 
-        // GET: Productions
+        // GET: Production
         public async Task<IActionResult> Index()
         {
             var productions = await _context.Production
@@ -32,7 +32,7 @@ namespace StreamWorld.Controllers
             return View(productions);
         }
 
-        // GET: Productions/Details/5
+        // GET: Production/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -52,24 +52,24 @@ namespace StreamWorld.Controllers
             }
 
             ViewBag.Genres = new SelectList(_context.Genre, "_id", "name");
-            ViewBag.Artists = new SelectList(_context.Artist, "_id", "name");
+            ViewBag.Artist = new SelectList(_context.Artist, "_id", "name");
             return View(production);
         }
 
-        // GET: Productions/Create
+        // GET: Production/Create
         public IActionResult Create()
         {
             ViewBag.Genres = new SelectList(_context.Genre, "_id", "name");
-            ViewBag.Artists = new SelectList(_context.Artist, "_id", "name");
+            ViewBag.Artist = new SelectList(_context.Artist, "_id", "name");
             return View();
         }
 
-        // POST: Productions/Create
+        // POST: Production/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("titulo,releaseDate,type,director,coverPhoto")] Production production, int[] selectedGenres, int[] selectedArtists)
+        public async Task<IActionResult> Create([Bind("titulo,releaseDate,type,director,coverPhoto")] Production production, int[] selectedGenres, int[] selectedArtists, string[] characterNames)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace StreamWorld.Controllers
                 {
                     foreach (var genreId in selectedGenres)
                     {
-                        _context.Add(new ProductionsGenre
+                        _context.ProductionsGenre.Add(new ProductionsGenre
                         {
                             productionId = production._id,
                             genresId = genreId
@@ -97,12 +97,18 @@ namespace StreamWorld.Controllers
                 // Relaciona Artistas (sem personagem ainda)
                 if (selectedArtists != null)
                 {
-                    foreach (var artistId in selectedArtists)
+                    for (int i = 0; i < selectedArtists.Length; i++)
                     {
-                        _context.Add(new ProductionsArtist
+                        var artistId = selectedArtists[i];
+                        string? character = null;
+                        if (characterNames != null && i < characterNames.Length)
+                            character = characterNames[i];
+
+                        _context.ProductionsArtist.Add(new ProductionsArtist
                         {
                             productionId = production._id,
                             artistsId = artistId,
+                            characterName = character
                         });
                     }
 
@@ -115,7 +121,7 @@ namespace StreamWorld.Controllers
             return View(production);
         }
 
-        // GET: Productions/Edit/5
+        // GET: Production/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -138,7 +144,7 @@ namespace StreamWorld.Controllers
                 "name",
                 production.productionsGenres.Select(pg => pg.genresId)
             );
-            ViewBag.Artists = new MultiSelectList(
+            ViewBag.Artist = new MultiSelectList(
                 _context.Artist,
                 "_id",
                 "name",
@@ -147,12 +153,12 @@ namespace StreamWorld.Controllers
             return View(production);
         }
 
-        // POST: Productions/Edit/5
+        // POST: Production/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Production production, int[] selectedGenres, int[] selectedArtists)
+        public async Task<IActionResult> Edit(int id, Production production, int[] selectedGenres, int[] selectedArtists, string[] characterNames)
         {
             if (id != production._id)
                 return NotFound();
@@ -198,12 +204,18 @@ namespace StreamWorld.Controllers
                     // 3️⃣ Adiciona artistas novos
                     if (selectedArtists != null)
                     {
-                        foreach (var artistId in selectedArtists)
+                        for (int i = 0; i < selectedArtists.Length; i++)
                         {
+                            var artistId = selectedArtists[i];
+                            string? character = null;
+                            if (characterNames != null && i < characterNames.Length)
+                                character = characterNames[i];
+
                             _context.ProductionsArtist.Add(new ProductionsArtist
                             {
                                 productionId = dbProduction._id,
-                                artistsId = artistId
+                                artistsId = artistId,
+                                characterName = character
                             });
                         }
                     }
@@ -221,7 +233,7 @@ namespace StreamWorld.Controllers
             return View(production);
         }
 
-        // GET: Productions/Delete/5
+        // GET: Production/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -239,7 +251,7 @@ namespace StreamWorld.Controllers
             return View(production);
         }
 
-        // POST: Productions/Delete/5
+        // POST: Production/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -257,6 +269,31 @@ namespace StreamWorld.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Search(string query)
+        {
+            IQueryable<Production> productions = _context.Production;
+
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                productions = productions
+                    .Include(p => p.productionsArtists)
+                        .ThenInclude(pa => pa.artists)
+                    .Include(p => p.productionsGenres)
+                        .ThenInclude(pg => pg.genres)
+                    .Where(p => 
+                    p.titulo.Contains(query) ||
+                    p.productionsArtists.Any(a => a.artists.name.ToLower().Contains(query)) ||
+                    p.productionsGenres.Any(g => g.genres.name.ToLower().Contains(query))
+                );
+            }
+
+            var results = productions
+            .OrderBy(a => a.titulo)
+            .ToList();
+
+            return View(results);
         }
 
         private bool ProductionExists(int id)

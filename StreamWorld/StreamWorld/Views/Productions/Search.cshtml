@@ -1,0 +1,51 @@
+﻿@model List<StreamWorld.Models.Production>
+
+@{
+    ViewData["Title"] = "Buscar Produções";
+}
+
+<h2 class="mb-4">Buscar Produções</h2>
+
+<form asp-action="Search" method="get" class="mb-4">
+    <div class="input-group">
+        <input type="text" 
+               name="query" 
+               class="form-control" 
+               placeholder="Busque por título, artista ou gênero..." />
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+</form>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Nenhum resultado encontrado.</p>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <a asp-action="Details" asp-route-id="@item._id" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm">
+                        <img src="@(string.IsNullOrEmpty(item.coverPhoto) ? "/images/no-image.jpg" : item.coverPhoto)"
+                             class="card-img-top"
+                             style="height: 250px; object-fit: cover;" />
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a asp-action="Details" 
+                                   asp-route-id="@item._id">
+                                    @item.titulo
+                                </a>
+                            </h5>
+                            <p class="card-text">
+                                <strong>Lançamento:</strong> @item.releaseDate.ToString("yyyy")
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+}
