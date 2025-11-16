@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StreamWorld.Data;
 using StreamWorld.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace StreamWorld.Controllers
 {
@@ -20,12 +21,14 @@ namespace StreamWorld.Controllers
         }
 
         // GET: Genres
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Genre.ToListAsync());
         }
 
         // GET: Genres/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +47,7 @@ namespace StreamWorld.Controllers
         }
 
         // GET: Genres/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -54,6 +58,7 @@ namespace StreamWorld.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("_id,name")] Genre genre)
         {
             if (ModelState.IsValid)
@@ -66,6 +71,7 @@ namespace StreamWorld.Controllers
         }
 
         // GET: Genres/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,6 +92,7 @@ namespace StreamWorld.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("_id,name")] Genre genre)
         {
             if (id != genre._id)
@@ -117,6 +124,7 @@ namespace StreamWorld.Controllers
         }
 
         // GET: Genres/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,6 +143,7 @@ namespace StreamWorld.Controllers
         }
 
         // POST: Genres/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

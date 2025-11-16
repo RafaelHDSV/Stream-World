@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StreamWorld.Data;
 using StreamWorld.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace StreamWorld.Controllers
 {
@@ -20,6 +21,7 @@ namespace StreamWorld.Controllers
         }
 
         // GET: Production
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var productions = await _context.Production
@@ -57,6 +59,7 @@ namespace StreamWorld.Controllers
         }
 
         // GET: Production/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewBag.Genres = new SelectList(_context.Genre, "_id", "name");
@@ -69,6 +72,7 @@ namespace StreamWorld.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("titulo,releaseDate,type,director,coverPhoto")] Production production, int[] selectedGenres, int[] selectedArtists, string[] characterNames)
         {
             if (ModelState.IsValid)
@@ -122,6 +126,7 @@ namespace StreamWorld.Controllers
         }
 
         // GET: Production/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -156,6 +161,7 @@ namespace StreamWorld.Controllers
         // POST: Production/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Production production, int[] selectedGenres, int[] selectedArtists, string[] characterNames)
@@ -234,6 +240,7 @@ namespace StreamWorld.Controllers
         }
 
         // GET: Production/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -252,6 +259,7 @@ namespace StreamWorld.Controllers
         }
 
         // POST: Production/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
