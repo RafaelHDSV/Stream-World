@@ -61,10 +61,16 @@ namespace StreamWorld.Controllers
         {
             if (ModelState.IsValid)
             {
+                contact.submissionDate = DateTime.Now;
+
                 _context.Add(contact);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                TempData["SuccessMessage"] = "Sua mensagem foi enviada com sucesso!";
+
+                return RedirectToAction(nameof(Create));
             }
+
             return View(contact);
         }
     }

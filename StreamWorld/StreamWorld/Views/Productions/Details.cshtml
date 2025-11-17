@@ -65,7 +65,10 @@
 
 
         <div class="mt-4">
-            <a asp-action="Edit" asp-route-id="@Model._id" class="btn btn-primary">Editar</a>
+            @if (User.Identity!.IsAuthenticated)
+            {
+                <a asp-action="Edit" asp-route-id="@Model._id" class="btn btn-primary">Editar</a>
+            }
             <a asp-action="Search" class="btn btn-secondary">Voltar</a>
         </div>
     </div>

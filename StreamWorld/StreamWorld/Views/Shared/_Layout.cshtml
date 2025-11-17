@@ -26,27 +26,33 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Productions" asp-action="Search">Buscar obras</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Artists" asp-action="Index">Artistas</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Artists" asp-action="Search">Buscar artistas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Genres" asp-action="Index">Gêneros</a>
-                        </li>
-                        @* @if (User.Identity!.IsAuthenticated) {} *@
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Productions" asp-action="Index">Obras</a>
-                        </li>
+                        </li>                      
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Contacts" asp-action="Create">Enviar mensagem</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Contacts" asp-action="Index">Contato</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Credit">Créditos</a>
                         </li>
+
+                        @if (User.Identity!.IsAuthenticated)
+                        {
+                        <li class="nav-item">
+                            <p class="nav-link text-dark" > | </p>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Artists" asp-action="Index">Artistas</a>
+                        </li>  
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Genres" asp-action="Index">Gêneros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Productions" asp-action="Index">Obras</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Contacts" asp-action="Index">Contato</a>
+                        </li>   
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
