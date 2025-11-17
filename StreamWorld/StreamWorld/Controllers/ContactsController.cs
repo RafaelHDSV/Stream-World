@@ -24,7 +24,11 @@ namespace StreamWorld.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Contact.ToListAsync());
+            var mensagens = await _context.Contact
+                .OrderByDescending(c => c.submissionDate)
+                .ToListAsync();
+
+            return View(mensagens);
         }
 
         // GET: Contacts/Details/5

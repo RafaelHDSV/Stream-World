@@ -12,6 +12,7 @@ namespace StreamWorld.Models
 
         [Display(Name = "Email")]
         [Required(ErrorMessage = "O e-mail é obrigatório.")]
+        [EmailAddress(ErrorMessage = "O e-mail informado não é válido.")]
         public string email { get; set; } = string.Empty;
 
         [Display(Name = "Assunto")]
