@@ -100,38 +100,46 @@ INSERT INTO Contact (_id, name, email, subject, message, submissionDate) VALUES
 (3, 'Maria Lima', 'maria@email.com', 'Sugestão', 'Seria legal adicionar mais documentários.', GETDATE());
 SET IDENTITY_INSERT Contact OFF;
 
-/* ============================================================
-   SEED DO USUÁRIO ADMINISTRADOR
-   ============================================================ */
-/* ========== CRIAR ROLE ADMIN ========== */
+/* ===============================================
+   CRIAÇÃO DE USER – PRONTO PARA USO
+   =============================================== */
+
+DECLARE @UserId NVARCHAR(450) = NEWID();
+DECLARE @RoleId NVARCHAR(450) = NEWID();
+
+/* ===============================================
+   CRIAR ROLE ADMIN
+   =============================================== */
 INSERT INTO AspNetRoles (Id, Name, NormalizedName)
-VALUES ('1', 'Admin', 'ADMIN');
+VALUES (@RoleId, 'Admin', 'ADMIN');
 
-
-/* ========== CRIAR USUÁRIO ADMIN ========== */
+/* ===============================================
+   CRIAR USUÁRIO ADMIN
+   =============================================== */
 INSERT INTO AspNetUsers 
-(Id, UserName, NormalizedUserName, Email, NormalizedEmail, 
- EmailConfirmed, PasswordHash, SecurityStamp, ConcurrencyStamp, 
+(Id, UserName, NormalizedUserName, Email, NormalizedEmail,
+ EmailConfirmed, PasswordHash, SecurityStamp, ConcurrencyStamp,
  PhoneNumberConfirmed, TwoFactorEnabled, LockoutEnabled, AccessFailedCount)
-VALUES 
+VALUES
 (
-  '1',                                  -- ID do usuário (string)
-  'admin@admin.com',                    -- UserName
-  'ADMIN@ADMIN.COM',                    -- NormalizedUserName
-  'admin@admin.com',                    -- Email
-  'ADMIN@ADMIN.COM',                    -- NormalizedEmail
-  1,                                    -- EmailConfirmed
-  'AQAAAAEAACcQAAAAEGdQ6VbUaz2YsmiVjCwXTlzAIXazhbugzuDUFcPRl1BDpRP70dNDO7xjMnIKh4j/wQ==', -- PasswordHash ("Pa$$w0rd")
-  NEWID(),                              -- SecurityStamp
-  NEWID(),                              -- ConcurrencyStamp
-  0,                                    -- PhoneNumberConfirmed
-  0,                                    -- TwoFactorEnabled
-  1,                                    -- LockoutEnabled
-  0                                     -- AccessFailedCount
+  @UserId,
+  'admin@admin.com',
+  'ADMIN@ADMIN.COM',
+  'admin@admin.com',
+  'ADMIN@ADMIN.COM',
+  1,
+  'AQAAAAEAACcQAAAAEGdQ6VbUaz2YsmiVjCwXTlzAIXazhbugzuDUFcPRl1BDpRP70dNDO7xjMnIKh4j/wQ==', -- Pa$$w0rd
+  NEWID(),
+  NEWID(),
+  0,
+  0,
+  1,
+  0
 );
 
-
-/* ========== VINCULAR USUÁRIO AO PAPEL ADMIN ========== */
+/* ===============================================
+   VINCULAR USUÁRIO À ROLE ADMIN
+   =============================================== */
 INSERT INTO AspNetUserRoles (UserId, RoleId)
-VALUES ('1', '1');
+VALUES (@UserId, @RoleId);
 
