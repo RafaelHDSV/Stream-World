@@ -111,6 +111,27 @@ O sistema utiliza banco de dados relacional (SQL Server ou SQLite) e segue o pad
 
 4.  Compile e execute o projeto (F5)
 
+```
+git clone https://github.com/RafaelHDSV/Stream-World.git
+
+cd Stream-World/StreamWorld/StreamWorld
+
+dotnet new tool-manifest --force
+
+dotnet tool install dotnet-ef --version 9.0.0-preview.4.24267.1
+
+dotnet ef database update
+
+
+conectar no banco de dados local
+garantir que o banco streamworld está selecionado no select de opções
+rodar seed.sql
+
+rodar a aplicação
+
+Caso por alguma razão a população do banco de dados der problemas, é possível adicionar novas obras, artistas, etc. Para que possa garantir a funcionalidade do projeto. A criação de usuário também é possível, uma vez que não utilizamos roles, qualquer usuário logado terá acesso especial
+```
+
 <h2 id="structure">🏗️ Estrutura do Projeto</h2>
 
 ```
