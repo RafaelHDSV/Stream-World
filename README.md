@@ -118,6 +118,7 @@ O sistema utiliza banco de dados relacional (SQL Server ou SQLite) e segue o pad
 
 <h2 id="structure">🏗️ Estrutura do Projeto</h2>
 
+```
 StreamWorld/
 ├── Controllers/
 │   ├── ProductionsController.cs
@@ -142,6 +143,7 @@ StreamWorld/
 │   ├── img/
 │   ├── js/
 └── StreamWorld.csproj
+```
 
 <h2 id="screenshots">📷 Screenshots</h2>
 
