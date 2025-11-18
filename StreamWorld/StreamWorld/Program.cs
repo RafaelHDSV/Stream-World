@@ -2,6 +2,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StreamWorld.Data;
 
+var hasher = new PasswordHasher<IdentityUser>();
+var hash = hasher.HashPassword(new IdentityUser(), "Pa$$w0rd");
+Console.WriteLine(hash);
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

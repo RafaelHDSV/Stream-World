@@ -128,7 +128,7 @@ VALUES
   'admin@admin.com',
   'ADMIN@ADMIN.COM',
   1,
-  'AQAAAAEAACcQAAAAEGdQ6VbUaz2YsmiVjCwXTlzAIXazhbugzuDUFcPRl1BDpRP70dNDO7xjMnIKh4j/wQ==', -- Pa$$w0rd
+  'AQAAAAIAAYagAAAAEBxHYbCXXUHeTj+aOwBEY4bw2neqburQiBp2K2D8O1aviHYmgetASgPPrXqwxxmysw==', -- Pa$$w0rd
   NEWID(),
   NEWID(),
   0,
