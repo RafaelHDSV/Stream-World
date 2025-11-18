@@ -103,25 +103,19 @@ SET IDENTITY_INSERT Contact OFF;
 /* ============================================================
    SEED DO USUÁRIO ADMINISTRADOR
    ============================================================ */
-
 /* ========== CRIAR ROLE ADMIN ========== */
-SET IDENTITY_INSERT AspNetRoles ON;
-
 INSERT INTO AspNetRoles (Id, Name, NormalizedName)
 VALUES ('1', 'Admin', 'ADMIN');
 
-SET IDENTITY_INSERT AspNetRoles OFF;
 
 /* ========== CRIAR USUÁRIO ADMIN ========== */
-SET IDENTITY_INSERT AspNetUsers ON;
-
 INSERT INTO AspNetUsers 
 (Id, UserName, NormalizedUserName, Email, NormalizedEmail, 
  EmailConfirmed, PasswordHash, SecurityStamp, ConcurrencyStamp, 
  PhoneNumberConfirmed, TwoFactorEnabled, LockoutEnabled, AccessFailedCount)
 VALUES 
 (
-  '1',                                  -- ID do usuário
+  '1',                                  -- ID do usuário (string)
   'admin@admin.com',                    -- UserName
   'ADMIN@ADMIN.COM',                    -- NormalizedUserName
   'admin@admin.com',                    -- Email
@@ -136,8 +130,8 @@ VALUES
   0                                     -- AccessFailedCount
 );
 
-SET IDENTITY_INSERT AspNetUsers OFF;
 
 /* ========== VINCULAR USUÁRIO AO PAPEL ADMIN ========== */
 INSERT INTO AspNetUserRoles (UserId, RoleId)
 VALUES ('1', '1');
+
