@@ -541,3 +541,4 @@ C:\Users\rafae\OneDrive\Desktop\Stream-World\StreamWorld\StreamWorld\obj\Debug\n
 C:\Users\rafae\OneDrive\Desktop\Stream-World\StreamWorld\StreamWorld\obj\Debug\net8.0\StreamWorld.pdb
 C:\Users\rafae\OneDrive\Desktop\Stream-World\StreamWorld\StreamWorld\obj\Debug\net8.0\StreamWorld.genruntimeconfig.cache
 C:\Users\rafae\OneDrive\Desktop\Stream-World\StreamWorld\StreamWorld\obj\Debug\net8.0\ref\StreamWorld.dll
+C:\Users\rafae\OneDrive\Desktop\Stream-World\StreamWorld\StreamWorld\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
