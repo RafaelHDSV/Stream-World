@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UL56EmHkWic=",
+  "dgSpecHash": "PXH+TzDqtNc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\rafae\\OneDrive\\Documentos\\FACULDADE\\Desenvolvimento de Aplicações em Ambiente WEB\\StreamWorld\\StreamWorld\\StreamWorld\\StreamWorld.csproj",
+  "projectFilePath": "C:\\Users\\rafae\\OneDrive\\Desktop\\Stream-World\\StreamWorld\\StreamWorld\\StreamWorld.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rafae\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\rafae\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
