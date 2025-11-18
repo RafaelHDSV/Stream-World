@@ -1,12 +1,12 @@
 /* ============================================================
-   SEED COMPLETO DO BANCO STREAMWORLD
+   SEED COMPLETO CORRIGIDO – STREAMWORLD
+   COMPATÍVEL COM OS MODELS DO ENTITY FRAMEWORK
    ============================================================ */
 
 /* ===========================
       TABELA: Genres
    =========================== */
-
-INSERT INTO Genres (Id, Name) VALUES
+INSERT INTO Genres (_id, name) VALUES
 (1, 'Ação'),
 (2, 'Drama'),
 (3, 'Comédia'),
@@ -22,8 +22,7 @@ INSERT INTO Genres (Id, Name) VALUES
 /* ===========================
       TABELA: Artists
    =========================== */
-
-INSERT INTO Artists (Id, Name, BirthDate, BirthCountry, PhotoUrl) VALUES
+INSERT INTO Artists (_id, name, birthdate, countryBirth, photo) VALUES
 (1, 'Robert Downey Jr.', '1965-04-04', 'Estados Unidos', '/images/artists/rdj.jpg'),
 (2, 'Scarlett Johansson', '1984-11-22', 'Estados Unidos', '/images/artists/scarlett.jpg'),
 (3, 'Pedro Pascal', '1975-04-02', 'Chile', '/images/artists/pedro.jpg'),
@@ -39,43 +38,59 @@ INSERT INTO Artists (Id, Name, BirthDate, BirthCountry, PhotoUrl) VALUES
 /* ===========================
       TABELA: Productions
    =========================== */
-
-INSERT INTO Productions (Id, Title, ReleaseYear, GenreId, Synopsis, PosterUrl) VALUES
-(1, 'Vingadores: Ultimato', 2019, 1, 'Os heróis restantes se unem para tentar desfazer o estalo de Thanos.', '/images/posters/endgame.jpg'),
-(2, 'Coringa', 2019, 2, 'A origem sombria de um dos vilões mais marcantes da cultura pop.', '/images/posters/joker.jpg'),
-(3, 'La La Land', 2016, 9, 'Um romance musical entre uma atriz e um pianista.', '/images/posters/lalaland.jpg'),
-(4, 'Matrix', 1999, 7, 'Um hacker descobre que o mundo é uma simulação.', '/images/posters/matrix.jpg'),
-(5, 'Duna', 2021, 7, 'Paul Atreides enfrenta conflitos políticos e ambientais em Arrakis.', '/images/posters/dune.jpg'),
-(6, 'Homem-Aranha: Sem Volta Para Casa', 2021, 1, 'Peter Parker enfrenta o multiverso após um feitiço dar errado.', '/images/posters/nwh.jpg'),
-(7, 'O Rei Leão', 1994, 4, 'A emocionante jornada de Simba.', '/images/posters/lionking.jpg'),
-(8, 'John Wick', 2014, 1, 'Um ex-assassino parte em busca de vingança.', '/images/posters/johnwick.jpg'),
-(9, 'A Origem', 2010, 7, 'Um ladrão invade sonhos para roubar segredos.', '/images/posters/inception.jpg'),
-(10, 'Interestelar', 2014, 7, 'Uma equipe viaja através de um buraco de minhoca em busca de um novo lar.', '/images/posters/interstellar.jpg');
+INSERT INTO Productions (_id, titulo, releaseDate, type, director, coverPhoto, createdAt)
+VALUES
+(1, 'Vingadores: Ultimato',      '2019-04-26', 'Filme', 'Anthony e Joe Russo', '/images/posters/endgame.jpg', GETDATE()),
+(2, 'Coringa',                    '2019-10-03', 'Filme', 'Todd Phillips', '/images/posters/joker.jpg', GETDATE()),
+(3, 'La La Land',                 '2016-12-09', 'Filme', 'Damien Chazelle', '/images/posters/lalaland.jpg', GETDATE()),
+(4, 'Matrix',                     '1999-03-31', 'Filme', 'Wachowski Sisters', '/images/posters/matrix.jpg', GETDATE()),
+(5, 'Duna',                       '2021-10-22', 'Filme', 'Denis Villeneuve', '/images/posters/dune.jpg', GETDATE()),
+(6, 'Homem-Aranha: Sem Volta',    '2021-12-17', 'Filme', 'Jon Watts', '/images/posters/nwh.jpg', GETDATE()),
+(7, 'O Rei Leão',                 '1994-06-24', 'Filme', 'Roger Allers', '/images/posters/lionking.jpg', GETDATE()),
+(8, 'John Wick',                  '2014-10-24', 'Filme', 'Chad Stahelski', '/images/posters/johnwick.jpg', GETDATE()),
+(9, 'A Origem',                   '2010-07-16', 'Filme', 'Christopher Nolan', '/images/posters/inception.jpg', GETDATE()),
+(10, 'Interestelar',              '2014-11-07', 'Filme', 'Christopher Nolan', '/images/posters/interstellar.jpg', GETDATE());
 
 
 /* ===========================
-      RELACIONAMENTO: ProductionArtists
+   RELAÇÃO: ProductionsGenre
    =========================== */
-
-INSERT INTO ProductionArtists (ProductionId, ArtistId) VALUES
+INSERT INTO ProductionsGenre (productionId, genresId) VALUES
 (1, 1),
-(1, 2),
-(2, 7),
-(3, 6),
-(4, 8),
-(5, 3),
-(6, 4),
+(1, 7),
+(2, 2),
+(3, 9),
+(4, 7),
+(5, 7),
+(6, 1),
 (6, 5),
-(8, 8),
-(9, 9),
-(10, 9);
+(7, 4),
+(8, 1),
+(9, 7),
+(10, 7);
 
 
 /* ===========================
-      TABELA: Contacts
+   RELAÇÃO: ProductionsArtist
    =========================== */
+INSERT INTO ProductionsArtist (productionId, artistsId, characterName) VALUES
+(1, 1, 'Homem de Ferro'),
+(1, 2, 'Viúva Negra'),
+(2, 7, 'Arthur Fleck'),
+(3, 6, 'Mia Dolan'),
+(4, 8, 'Neo'),
+(5, 3, 'Duke Leto Atreides'),
+(6, 4, 'Peter Parker'),
+(6, 5, 'MJ'),
+(8, 8, 'John Wick'),
+(9, 9, 'Professor Miles'),
+(10, 9, 'Brand');
 
-INSERT INTO Contacts (Id, FullName, Email, Subject, Message, SentAt) VALUES
+
+/* ===========================
+         TABELA: Contacts
+   =========================== */
+INSERT INTO Contacts (_id, name, email, subject, message, submissionDate) VALUES
 (1, 'Rafael Vieira', 'rafael@gmail.com', 'Problema no site', 'Não consigo acessar minha conta.', GETDATE()),
 (2, 'João Souza', 'joao@example.com', 'Parceria', 'Gostaria de conversar sobre divulgação.', GETDATE()),
 (3, 'Maria Lima', 'maria@email.com', 'Sugestão', 'Seria legal adicionar mais documentários.', GETDATE());
