@@ -149,9 +149,9 @@ StreamWorld/
 
 <img width="1863" height="1096" alt="image" src="https://github.com/user-attachments/assets/d8e06d3d-0606-4853-a372-9fa1e4141602" />
 
-<img width="1863" height="1096" alt="image" src="https://github.com/user-attachments/assets/5620a263-9b2c-4d89-8253-336400ebb488" />
+<img width="1863" height="3512" alt="image" src="https://github.com/user-attachments/assets/f154476c-5a20-47af-a12a-5ad8a4071b21" />
 
-<img width="1863" height="1096" alt="image" src="https://github.com/user-attachments/assets/0ee9d0f6-324b-4013-856d-7a99275daa7b" />
+<img width="1086" height="816" alt="image" src="https://github.com/user-attachments/assets/cda2c0f7-9910-4d5e-b08d-175c8f2b2100" />
 
 <img width="1863" height="877" alt="image" src="https://github.com/user-attachments/assets/bc4ccf8d-ad75-440c-905c-757a9ba79921" />
 
@@ -165,4 +165,5 @@ StreamWorld/
 
 <img width="1863" height="877" alt="image" src="https://github.com/user-attachments/assets/a768385a-b101-4900-8d7d-3a43a165e397" />
 
-<p align="center"> Desenvolvido com ❤️ por <a href="https://github.com/RafaelHDSV">RafaelHDSV</a> </p>
+<p align="center"> Desenvolvido com ❤️ por <a href="https://github.com/RafaelHDSV">RafaelHDSV</a>, <a href="https://github.com/Rafasouza03">Rafasouza03</a> e <a href="https://github.com/MatheusTakenaka">MatheusTakenaka</a></p>
+
