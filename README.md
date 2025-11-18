@@ -109,11 +109,6 @@ O sistema utiliza banco de dados relacional (SQL Server ou SQLite) e segue o pad
 
 3.  Abra o arquivo .sln no Visual Studio 2022
 
-4. Configure o banco de dados
-  ```bash
-  dotnet ef database update
-  ```
-
 4.  Compile e execute o projeto (F5)
 
 <h2 id="structure">🏗️ Estrutura do Projeto</h2>
