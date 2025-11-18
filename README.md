@@ -21,9 +21,15 @@
 
 <h2 id="about">📌 Sobre o Projeto</h2>
 
-TechMoto é um sistema desktop desenvolvido em Windows Forms com C#, projetado para gerenciar o estoque de motos em lojas e permitir que clientes demonstrem interesse pelos veículos disponíveis. O objetivo principal é facilitar a compra e venda de motos em um ambiente similar a um marketplace.
-
-⚠️ **Observação:** O sistema não utiliza banco de dados permanente - todas as informações são armazenadas apenas em memória e serão perdidas ao fechar a aplicação.
+StreamWorld é uma aplicação web desenvolvida com ASP.NET Core MVC (.NET 8) e Entity Framework Core 8, criada para a disciplina Desenvolvimento de Aplicações em Ambiente Web da Universidade Anhembi Morumbi.
+Seu objetivo é simular o site de uma plataforma de streaming, permitindo:
+- Visualização pública do catálogo de filmes e séries
+- Busca por títulos, artistas e gêneros
+- Consulta de detalhes completos de produções
+- Busca e detalhes de artistas
+- Envio de mensagens por um formulário de contato
+- Área administrativa protegida por autenticação
+O sistema utiliza banco de dados relacional (SQL Server ou SQLite) e segue o padrão MVC, com organização completa em Models, Views e Controllers.
 
 <details>
   <summary>Usuário administrador para login</summary>
@@ -36,16 +42,52 @@ TechMoto é um sistema desktop desenvolvido em Windows Forms com C#, projetado p
 
 <h2 id="features">✨ Funcionalidades</h2>
 
-- 🏪 **Loja**
-  - Cadastro de novas motos com foto, modelo, marca, cilindrada, cor, preço e descrição
-  - Listagem de motos com visualização por imagem e em tabela
-  - Edição e exclusão de motos cadastradas.
-  - Visualização de clientes interessados em cada moto.
+- 🌐 Público Geral
+  - 🏠 Página Inicial
+    - Exibe os 10 títulos mais recentes
+    - Mostrar capa + nome
+  
+  - 🔎 Busca de Produções
+    - Busca por nome, gênero ou artista
+    - Exibe capa, título e ano
+    - Link para página de detalhes
+  
+  - 📄 Página de Detalhes da Produção
+    - Título
+    - Ano de lançamento
+    - Diretor
+    - Gêneros associados
+    - Foto da capa
+    - Lista de artistas com nome do personagem
+  
+  - 🎭 Busca de Artistas
+    - Buscar por nome ou país
+    - Exibe foto + nome
+  
+  - 👤 Página de Detalhes do Artista
+    - Nome
+    - Data de nascimento
+    - País de origem
+    - Foto
+    - Produções que participou + personagem interpretado
+  
+  - ✉️ Página de Contato
+    - Nome completo (obrigatório)
+    - E-mail válido (com validação)
+    - Assunto (obrigatório)
+    - Mensagem (obrigatória)
+    - Armazenamento no banco
+    - Mensagem de sucesso após envio
 
-- 👤 **Cliente**
-  - Cadastro e atualização de dados pessoais (nome, CPF, e-mail, telefone)
-  - Visualização do catálogo de motos disponíveis
-  - Demonstração de interesse por uma moto específica (com mensagem personalizada, telefone e proposta)
+- 🔐 Área Administrativa (somente usuários autenticados)
+  - ✔ CRUD completo de:
+    - Produções
+    - Artistas
+    - Gêneros
+  
+  - 📬 Visualização de Mensagens de Contato
+    - Apenas administradores
+    - Ordenadas da mais recente para a mais antiga
 
 <h2 id="started">🚀 Como Executar o Projeto</h2>
 
@@ -67,21 +109,58 @@ TechMoto é um sistema desktop desenvolvido em Windows Forms com C#, projetado p
 
 3.  Abra o arquivo .sln no Visual Studio 2022
 
+4. Configure o banco de dados
+  ```bash
+  dotnet ef database update
+  ```
+
 4.  Compile e execute o projeto (F5)
 
 <h2 id="structure">🏗️ Estrutura do Projeto</h2>
 
-| Formulário | Descrição
-|----------------------|-----------------------------------------------------
-| frmMain | tela principal (MDI), que abre os outros formulários
-| frmCadastroMotos | cadastro de motos no estoque
-| frmListagemMotos | controle de estoque (adicionar/remover motos, visualizar interessados)
-| frmListagemMotosTabela | controle de estoque em tabela
-| frmLogin | tela de autenticação
-| frmConfiguracaoUsuario | atualização de conta do usuário (loja ou cliente)
-| frmInteresseCliente | formulário para clientes demonstrarem interesse em uma moto
-| frmListagemInteressados | listagem de clientes interessados por moto
+StreamWorld/
+├── Controllers/
+│   ├── ProductionsController.cs
+│   ├── ArtistsController.cs
+│   ├── GenresController.cs
+│   └── ContactsController.cs
+├── Models/
+│   ├── Production.cs
+│   ├── Artist.cs
+│   ├── Genre.cs
+│   └── Contact.cs
+├── Views/
+│   ├── Productions/
+│   ├── Artists/
+│   ├── Genres/
+│   ├── Contacts/
+│   └── Shared/
+├── Data/
+│   ├── ApplicationDbContext.cs
+├── wwwroot/
+│   ├── css/
+│   ├── img/
+│   ├── js/
+└── StreamWorld.csproj
 
 <h2 id="screenshots">📷 Screenshots</h2>
+
+<img width="1863" height="1096" alt="image" src="https://github.com/user-attachments/assets/d8e06d3d-0606-4853-a372-9fa1e4141602" />
+
+<img width="1863" height="1096" alt="image" src="https://github.com/user-attachments/assets/5620a263-9b2c-4d89-8253-336400ebb488" />
+
+<img width="1863" height="1096" alt="image" src="https://github.com/user-attachments/assets/0ee9d0f6-324b-4013-856d-7a99275daa7b" />
+
+<img width="1863" height="877" alt="image" src="https://github.com/user-attachments/assets/bc4ccf8d-ad75-440c-905c-757a9ba79921" />
+
+<img width="1863" height="877" alt="image" src="https://github.com/user-attachments/assets/8f2da147-368a-4973-8677-8f5ce22f1814" />
+
+<img width="1863" height="933" alt="image" src="https://github.com/user-attachments/assets/22fd5791-b429-4849-b058-250e03e4b445" />
+
+<img width="1863" height="987" alt="image" src="https://github.com/user-attachments/assets/aa9ba843-d816-4a2e-8de6-eeb460995d7a" />
+
+<img width="1863" height="1008" alt="image" src="https://github.com/user-attachments/assets/0a98d335-4ee0-4c29-af11-148d81e2edb3" />
+
+<img width="1863" height="877" alt="image" src="https://github.com/user-attachments/assets/a768385a-b101-4900-8d7d-3a43a165e397" />
 
 <p align="center"> Desenvolvido com ❤️ por <a href="https://github.com/RafaelHDSV">RafaelHDSV</a> </p>
