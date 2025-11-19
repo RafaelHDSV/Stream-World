@@ -31,15 +31,6 @@ Seu objetivo é simular o site de uma plataforma de streaming, permitindo:
 - Área administrativa protegida por autenticação
 O sistema utiliza banco de dados relacional (SQL Server ou SQLite) e segue o padrão MVC, com organização completa em Models, Views e Controllers.
 
-<details>
-  <summary>Usuário administrador para login</summary>
-
-  ```
-    Email = "admin@admin.com",
-    Senha = "Pa$$w0rd",
-  ```
-</details>
-
 <h2 id="features">✨ Funcionalidades</h2>
 
 - 🌐 Público Geral
@@ -102,35 +93,44 @@ O sistema utiliza banco de dados relacional (SQL Server ou SQLite) e segue o pad
   git clone https://github.com/RafaelHDSV/Stream-World.git
   ```
 
-2.  Acesse a pasta do projeto:
+2. Entre na pasta do projeto necessária:
   ```bash
-  cd Steam-World
+  cd Stream-World/StreamWorld/StreamWorld
   ```
 
-3.  Abra o arquivo .sln no Visual Studio 2022
+3. Criar o arquivo de manifest da ferramenta:
+  ```bash
+  dotnet new tool-manifest --force
+  ```
 
-4.  Compile e execute o projeto (F5)
+4. Instalar o dotnet-ef dentro do manifest
+  ```
+  dotnet tool install dotnet-ef --version 9.0.0-preview.4.24267.1
+  ```
 
-```
-git clone https://github.com/RafaelHDSV/Stream-World.git
+5. Atualizar o banco de dados:
+  ```
+  dotnet ef database update
+  ```
 
-cd Stream-World/StreamWorld/StreamWorld
+6. Popular o banco de dados 
+    1. Conectar no banco de dados local
+    2. Garantir que o banco Stream-World esteja selecionado no select de opções
+    3. Rodar o arquivo `seed.sql` para popular o banco de dados
 
-dotnet new tool-manifest --force
+7. Rodar a aplicação completa
 
-dotnet tool install dotnet-ef --version 9.0.0-preview.4.24267.1
+8. Logar com o usuário administrador a seguir, para verificar as telas administrativas
+    <details>
+      <summary>Usuário administrador para login</summary>
+      
+      ```
+        Email = "admin@admin.com",
+        Senha = "Pa$$w0rd",
+      ```
+    </details>
 
-dotnet ef database update
-
-
-conectar no banco de dados local
-garantir que o banco streamworld está selecionado no select de opções
-rodar seed.sql
-
-rodar a aplicação
-
-Caso por alguma razão a população do banco de dados der problemas, é possível adicionar novas obras, artistas, etc. Para que possa garantir a funcionalidade do projeto. A criação de usuário também é possível, uma vez que não utilizamos roles, qualquer usuário logado terá acesso especial
-```
+> Caso, por alguma razão o auto-preenchimento do banco de dados falhar, é possível adicionar novas obras, artistas e todas os objetos manualmente. A criação de usuário também é possível, uma vez que não utilizamos `ROLES`, qualquer usuário logado terá acesso especial.
 
 <h2 id="structure">🏗️ Estrutura do Projeto</h2>
 
