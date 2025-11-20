@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rafae\\OneDrive\\Desktop\\Stream-World\\StreamWorld\\StreamWorld\\StreamWorld.csproj": {}
+    "C:\\Users\\rafae\\OneDrive\\Documentos\\FACULDADE\\Desenvolvimento de Aplicações em Ambiente WEB\\StreamWorld\\StreamWorld\\StreamWorld\\StreamWorld.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rafae\\OneDrive\\Desktop\\Stream-World\\StreamWorld\\StreamWorld\\StreamWorld.csproj": {
+    "C:\\Users\\rafae\\OneDrive\\Documentos\\FACULDADE\\Desenvolvimento de Aplicações em Ambiente WEB\\StreamWorld\\StreamWorld\\StreamWorld\\StreamWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rafae\\OneDrive\\Desktop\\Stream-World\\StreamWorld\\StreamWorld\\StreamWorld.csproj",
+        "projectUniqueName": "C:\\Users\\rafae\\OneDrive\\Documentos\\FACULDADE\\Desenvolvimento de Aplicações em Ambiente WEB\\StreamWorld\\StreamWorld\\StreamWorld\\StreamWorld.csproj",
         "projectName": "StreamWorld",
-        "projectPath": "C:\\Users\\rafae\\OneDrive\\Desktop\\Stream-World\\StreamWorld\\StreamWorld\\StreamWorld.csproj",
+        "projectPath": "C:\\Users\\rafae\\OneDrive\\Documentos\\FACULDADE\\Desenvolvimento de Aplicações em Ambiente WEB\\StreamWorld\\StreamWorld\\StreamWorld\\StreamWorld.csproj",
         "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rafae\\OneDrive\\Desktop\\Stream-World\\StreamWorld\\StreamWorld\\obj\\",
+        "outputPath": "C:\\Users\\rafae\\OneDrive\\Documentos\\FACULDADE\\Desenvolvimento de Aplicações em Ambiente WEB\\StreamWorld\\StreamWorld\\StreamWorld\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

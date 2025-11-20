@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\rafae\\OneDrive\\Desktop\\Stream-World\\StreamWorld\\",
+  "WorkspaceRootPath": "C:\\Users\\rafae\\OneDrive\\Documentos\\FACULDADE\\Desenvolvimento de Aplica\u00E7\u00F5es em Ambiente WEB\\StreamWorld\\StreamWorld\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1DA4CEA8-10EB-4FFE-B5F3-7FB0AB400BA5}|StreamWorld\\StreamWorld.csproj|c:\\users\\rafae\\onedrive\\desktop\\stream-world\\streamworld\\streamworld\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1DA4CEA8-10EB-4FFE-B5F3-7FB0AB400BA5}|StreamWorld\\StreamWorld.csproj|solutionrelative:streamworld\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{1DA4CEA8-10EB-4FFE-B5F3-7FB0AB400BA5}|StreamWorld\\StreamWorld.csproj|c:\\users\\rafae\\onedrive\\documentos\\faculdade\\desenvolvimento de aplica\u00E7\u00F5es em ambiente web\\streamworld\\streamworld\\streamworld\\views\\artists\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1DA4CEA8-10EB-4FFE-B5F3-7FB0AB400BA5}|StreamWorld\\StreamWorld.csproj|solutionrelative:streamworld\\views\\artists\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DA4CEA8-10EB-4FFE-B5F3-7FB0AB400BA5}|StreamWorld\\StreamWorld.csproj|c:\\users\\rafae\\onedrive\\documentos\\faculdade\\desenvolvimento de aplica\u00E7\u00F5es em ambiente web\\streamworld\\streamworld\\streamworld\\views\\productions\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1DA4CEA8-10EB-4FFE-B5F3-7FB0AB400BA5}|StreamWorld\\StreamWorld.csproj|solutionrelative:streamworld\\views\\productions\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\rafae\\OneDrive\\Desktop\\Stream-World\\StreamWorld\\StreamWorld\\appsettings.json",
-              "RelativeDocumentMoniker": "StreamWorld\\appsettings.json",
-              "ToolTip": "C:\\Users\\rafae\\OneDrive\\Desktop\\Stream-World\\StreamWorld\\StreamWorld\\appsettings.json",
-              "RelativeToolTip": "StreamWorld\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-18T11:38:05.596Z",
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\rafae\\OneDrive\\Documentos\\FACULDADE\\Desenvolvimento de Aplica\u00E7\u00F5es em Ambiente WEB\\StreamWorld\\StreamWorld\\StreamWorld\\Views\\Artists\\Details.cshtml",
+              "RelativeDocumentMoniker": "StreamWorld\\Views\\Artists\\Details.cshtml",
+              "ToolTip": "C:\\Users\\rafae\\OneDrive\\Documentos\\FACULDADE\\Desenvolvimento de Aplica\u00E7\u00F5es em Ambiente WEB\\StreamWorld\\StreamWorld\\StreamWorld\\Views\\Artists\\Details.cshtml",
+              "RelativeToolTip": "StreamWorld\\Views\\Artists\\Details.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADoAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T10:52:44.371Z",
               "EditorCaption": ""
             },
             {
@@ -36,6 +40,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\rafae\\OneDrive\\Documentos\\FACULDADE\\Desenvolvimento de Aplica\u00E7\u00F5es em Ambiente WEB\\StreamWorld\\StreamWorld\\StreamWorld\\Views\\Productions\\Details.cshtml",
+              "RelativeDocumentMoniker": "StreamWorld\\Views\\Productions\\Details.cshtml",
+              "ToolTip": "C:\\Users\\rafae\\OneDrive\\Documentos\\FACULDADE\\Desenvolvimento de Aplica\u00E7\u00F5es em Ambiente WEB\\StreamWorld\\StreamWorld\\StreamWorld\\Views\\Productions\\Details.cshtml",
+              "RelativeToolTip": "StreamWorld\\Views\\Productions\\Details.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEMAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T10:52:30.034Z",
+              "EditorCaption": ""
             }
           ]
         }
